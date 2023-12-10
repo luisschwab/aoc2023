@@ -42,8 +42,8 @@ fn parse_game(line: String) -> io::Result<u32> {
 fn parse_round(round_string: &str) -> bool {
 
 	let pairs: Vec<&str> = round_string
-							.split(", ")
-							.collect();
+						   .split(", ")
+						   .collect();
 
 	for pair in pairs {
 		let mut tmp = pair.split(" ");
@@ -93,8 +93,8 @@ fn round_cube(round_string: &str, max_red: u32, max_green: u32, max_blue: u32) -
 	let mut b = max_blue;
 
 	let pairs: Vec<&str> = round_string
-							.split(", ")
-							.collect();
+						   .split(", ")
+						   .collect();
 
 	for pair in pairs {
 		let mut tmp = pair.split(" ");
@@ -122,11 +122,11 @@ pub fn part1() -> io::Result<u32> {
 	let path = "src/inputs/input02.txt";
 
 	let file = File::open(path)?;
-    let reader = BufReader::new(file);
+	let reader = BufReader::new(file);
 
 	let mut id_sum: u32 = 0;
     for line in reader.lines() {		
-		id_sum += (parse_game(line.unwrap())).unwrap();
+			id_sum += (parse_game(line.unwrap())).unwrap();
     }
 	
 	Ok(id_sum)
